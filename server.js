@@ -6,11 +6,22 @@ const express = require("express");
 const { SERVER_PORT } = process.env;
 //Se trae la variable server_port del archivo env.
 
+
+const {
+  registerUser,
+  //activateUser,
+ // loginUser,
+ // deleteUser,
+} = require("./controllers/users");
+
 const app = express();
 
 app.use(express.json());
 
+/********************************** RUTAS ****************************************************** */
+//********************************************************************************************** */
 
+app.post("/users", registerUser);
 
 /********************************** middlewares de errores ************************************ */
 
