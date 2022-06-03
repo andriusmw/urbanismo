@@ -9,7 +9,7 @@ const { SERVER_PORT } = process.env;
 
 const {
   registerUser,
-  //activateUser,
+  activateUser,
  // loginUser,
  // deleteUser,
 } = require("./controllers/users");
@@ -21,7 +21,8 @@ app.use(express.json());
 /********************************** RUTAS ****************************************************** */
 //********************************************************************************************** */
 
-app.post("/users", registerUser);
+app.post("/users", registerUser); //registrar usuario
+app.get("/users/activate/:registrationCode", activateUser); //activar usuario
 
 /********************************** middlewares de errores ************************************ */
 
