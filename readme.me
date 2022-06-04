@@ -12,3 +12,23 @@ npm install express
 npm install mysql2
 
 npm install bcrypt
+
+npm install uuid
+
+npm install jsonwebtoken
+
+# endpoints y peticiones
+
+    -app.post("/users", registerUser); //registrar usuario
+
+    comando postmanm: POST, selecionar body , selecionar raw, poner este objeto:
+           {
+              "email": "perico@gmail.com",
+              "password": "1234",
+              "name": "perico1234"
+            }
+
+    -app.get("/users/activate/:registrationCode, activateUser)   
+    // sustituir el :registrationCode por el código tal cual y hacer GET con postman.
+    
+         
