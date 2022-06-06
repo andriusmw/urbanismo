@@ -6,13 +6,21 @@ const express = require("express");
 const { SERVER_PORT } = process.env;
 //Se trae la variable server_port del archivo env.
 
+const {
+  validateAuth,
+  checkAdmin,
+  //notFound,
+ // handleError,
+} = require("./middlewares");
 
 const {
   registerUser,
   activateUser,
   loginUser,
- // deleteUser,
+  deleteUser,
 } = require("./controllers/users");
+
+//const { createEntry, editEntry } = require("./controllers/entries");
 
 const app = express();
 
@@ -24,6 +32,7 @@ app.use(express.json());
 app.post("/users", registerUser); //registrar usuario
 app.get("/users/activate/:registrationCode", activateUser); //activar usuario
 app.post("/login", loginUser); //loguear usuario
+app.delete("/users/:idUser", validateAuth, checkAdmin, deleteUser);
 
 /********************************** middlewares de errores ************************************ */
 
