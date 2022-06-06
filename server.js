@@ -10,7 +10,7 @@ const {
   validateAuth,
   checkAdmin,
   //notFound,
- // handleError,
+  // handleError,
 } = require("./middlewares");
 
 const {
@@ -32,6 +32,8 @@ app.use(express.json());
 app.post("/users", registerUser); //registrar usuario
 app.get("/users/activate/:registrationCode", activateUser); //activar usuario
 app.post("/login", loginUser); //loguear usuario
+app.post("/entries", validateAuth, createEntry);
+app.patch("/entries/:idEntry", validateAuth, editEntry);
 app.delete("/users/:idUser", validateAuth, checkAdmin, deleteUser);
 
 /********************************** middlewares de errores ************************************ */
