@@ -3,7 +3,7 @@ const { selectEntryByBarrio } = require("../../repositories/entries");
 const getEntryByBarrio = async (req, res, next) => {
   try {
     const { barrioID } = req.params;
-    const entries = await selectEntryByBarrio();
+    const entries = await selectEntryByBarrio(barrioID);
     res.status(200).send({ status: "ok", data: entries, barrioID: barrioID });
   } catch (error) {
     next(error);
