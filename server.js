@@ -21,6 +21,7 @@ const {
 } = require("./controllers/users");
 
 const { getEntries } = require("./controllers/entries");
+const getEntriesByBarrio = require("./controllers/entries/getEntriesByBarrio");
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.post("/login", loginUser); //loguear usuario
 app.patch("/entries/:idEntry", validateAuth, editEntry); */
 app.delete("/users/:idUser", validateAuth, checkAdmin, deleteUser);
 app.get("/entries", getEntries);
+app.get("/entries", getEntriesByBarrio);
 
 /********************************** middlewares de errores ************************************ */
 
