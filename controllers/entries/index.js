@@ -1,3 +1,3 @@
-const getEntries = require("./getEntries");
+const getEntry = require("./getEntry");
 
-module.exports = { getEntries };
+module.exports = { getEntry };

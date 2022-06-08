@@ -1,11 +1,12 @@
 const getPool = require("../../database/getPool");
 
-const selectEntriesByBarrio = async () => {
+const selectEntryByBarrio = async () => {
   const pool = getPool();
   const [entries] = await pool.query(
-    "SELECT * FROM entries WHERE neighborhood = ?"
+    "SELECT * FROM entries WHERE neighborhood = ?",
+    [barrioID]
   );
   return entries;
 };
 
-module.exports = selectEntriesByBarrio;
+module.exports = selectEntryByBarrio;

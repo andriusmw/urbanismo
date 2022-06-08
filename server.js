@@ -20,8 +20,8 @@ const {
   deleteUser,
 } = require("./controllers/users");
 
-const { getEntries } = require("./controllers/entries");
-const getEntriesByBarrio = require("./controllers/entries/getEntriesByBarrio");
+const { getEntry } = require("./controllers/entries");
+const getEntryByBarrio = require("./controllers/entries/getEntryByBarrio");
 
 const app = express();
 
@@ -36,8 +36,8 @@ app.post("/login", loginUser); //loguear usuario
 /* app.post("/entries", validateAuth, createEntry);
 app.patch("/entries/:idEntry", validateAuth, editEntry); */
 app.delete("/users/:idUser", validateAuth, checkAdmin, deleteUser);
-app.get("/entries", getEntries);
-app.get("/entries", getEntriesByBarrio);
+app.get("/entries", getEntry);
+app.get("/entries/:barrioID", getEntryByBarrio);
 
 /********************************** middlewares de errores ************************************ */
 
