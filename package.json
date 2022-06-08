@@ -8,7 +8,9 @@
     "uuid": "^8.3.2"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "initDB": "node database/initDB.js",
+    "populateDB": "node database/populateDB.js"
   },
   "name": "urbanismo",
   "version": "1.0.0",

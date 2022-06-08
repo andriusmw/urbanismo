@@ -10,7 +10,7 @@ const {
   validateAuth,
   checkAdmin,
   //notFound,
- // handleError,
+  // handleError,
 } = require("./middlewares");
 
 const {
@@ -20,7 +20,8 @@ const {
   deleteUser,
 } = require("./controllers/users");
 
-//const { createEntry, editEntry } = require("./controllers/entries");
+const { getEntry } = require("./controllers/entries");
+const getEntryByBarrio = require("./controllers/entries/getEntryByBarrio");
 
 const app = express();
 
@@ -32,7 +33,11 @@ app.use(express.json());
 app.post("/users", registerUser); //registrar usuario
 app.get("/users/activate/:registrationCode", activateUser); //activar usuario
 app.post("/login", loginUser); //loguear usuario
+/* app.post("/entries", validateAuth, createEntry);
+app.patch("/entries/:idEntry", validateAuth, editEntry); */
 app.delete("/users/:idUser", validateAuth, checkAdmin, deleteUser);
+app.get("/entries", getEntry);
+app.get("/entries/:barrioID", getEntryByBarrio);
 
 /********************************** middlewares de errores ************************************ */
 
@@ -40,7 +45,7 @@ app.delete("/users/:idUser", validateAuth, checkAdmin, deleteUser);
 //app.use(notFound);
 
 /** Middleware error */
-//app.use(handleError);
+/* app.use(handleError); */
 
 /********************************** LEVANTAMOS EL SERVIDOR ************************************** */
 
