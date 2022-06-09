@@ -1,11 +1,11 @@
 const getPool = require("../../database/getPool");
 
-const insertEntry = async ({ title, description, userId }) => {
+const insertEntry = async ({ title, description, photo, city, neighborhood, status, userId }) => {
   const pool = getPool();
 
   const [{ insertId }] = await pool.query(
-    "INSERT INTO entries (title, description, user_id) VALUES (?, ?, ?)",
-    [title, description, userId]
+    "INSERT INTO entries (title, description, photo, city, neighborhood, status, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)",
+    [title, description, photo, city, neighborhood, status, userId]
   );
 
   return insertId;
