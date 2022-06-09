@@ -5,12 +5,14 @@
     "express": "^4.18.1",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.16",
     "uuid": "^8.3.2"
   },
   "scripts": {
     "start": "node server.js",
     "initDB": "node database/initDB.js",
-    "populateDB": "node database/populateDB.js"
+    "populateDB": "node database/populateDB.js",
+    "dev": "nodemon server.js"
   },
   "name": "urbanismo",
   "version": "1.0.0",

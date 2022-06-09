@@ -20,7 +20,11 @@ const {
   deleteUser,
 } = require("./controllers/users");
 
-const { getEntry, getEntryByBarrio } = require("./controllers/entries");
+const {
+  getEntry,
+  getEntryByBarrio,
+  editEntry,
+} = require("./controllers/entries");
 
 const app = express();
 
