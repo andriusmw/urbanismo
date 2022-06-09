@@ -1,4 +1,4 @@
 const generateError = require("./generateError");
-//const sendMail = require("./sendMail");
+const sendMail = require("./sendMail");
 
-module.exports = { generateError, /*sendMail */};
+module.exports = { generateError, sendMail };
