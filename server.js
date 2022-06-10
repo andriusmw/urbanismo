@@ -11,8 +11,8 @@ const { SERVER_PORT } = process.env;
 const {
   validateAuth,
   checkAdmin,
-  //notFound,
-  // handleError,
+  notFound,
+  handleError,
 } = require("./middlewares");
 
 const {
@@ -57,10 +57,10 @@ app.get("/votes/", getEntriesWitchVotes); //cargar entradas
 /********************************** middlewares de errores ************************************ */
 
 /** Middleware 404 */
-//app.use(notFound);
+app.use(notFound);
 
 /** Middleware error */
-/* app.use(handleError); */
+app.use(handleError); 
 
 /********************************** LEVANTAMOS EL SERVIDOR ************************************** */
 
