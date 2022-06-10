@@ -9,6 +9,7 @@ const initDB = async () => {
 
     await pool.query("DROP TABLE IF EXISTS entries;");
     await pool.query("DROP TABLE IF EXISTS users;");
+    await pool.query("DROP TABLE IF EXISTS votes;");
 
     console.log("Creating users table...");
 
@@ -36,6 +37,18 @@ const initDB = async () => {
         status ENUM("open", "closed") DEFAULT "open",
         user_id INT UNSIGNED,
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+      );
+      `);
+
+      console.log("Creating votes table...");
+
+    await pool.query(`
+      CREATE TABLE votes (
+        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        entry_id INT UNSIGNED,
+        user_id INT UNSIGNED,
+        FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+        FOREIGN KEY (entry_id) REFERENCES entries (id) ON DELETE CASCADE
       );
       `);
 

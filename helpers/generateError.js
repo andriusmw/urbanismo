@@ -1,28 +1,23 @@
-//------- MKDIR CON FS PARA UPLOADS-----------
-//Lo pongo aquí en vez de crear un archivo nuevo porque este ya va
-//incorporado en todas las funciones que lo necesita, así no hay que llamarlo
-//tantas veces.
-
-const fs = require("fs/promises")
-
-const createPathIfNotExists = async (path) => {
-  try {
-    await fs.access(path);
-    //intentar ir a la ruta
-  } catch {
-    await fs.mkdir(path);
-    //sino lo consigue la crea.
-  }
-}
-
-
-//--------------------------------------------
+const fs = require('fs/promises');
 
 const generateError = (message, status) => {
-    const error = new Error(message);
-    error.statusCode = status;
-    throw error;
-  };
-  
-  module.exports = generateError, createPathIfNotExists;
-  
+  const error = new Error(message);
+  error.httpStatus = status;
+  return error;
+};
+
+const createPathIfNotExists = async (path) => {
+  console.log("entra create path")
+  try {
+    await fs.access(path);
+    console.log("entra try")
+  } catch {
+    await fs.mkdir(path);
+    console.log("entra catch")
+  }
+};
+
+module.exports = {
+  generateError,
+  createPathIfNotExists,
+};

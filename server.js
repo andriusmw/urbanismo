@@ -21,6 +21,7 @@ const {
   loginUser,
   deleteUser,
 } = require("./controllers/users");
+
 const {
   getEntry,
   getEntryByBarrio,
@@ -28,11 +29,14 @@ const {
   createEntry,
 } = require("./controllers/entries");
 
+const {createVote} = require("./controllers/votes")
+
 const app = express();
 
 app.use(fileUpload()); //middleware para gestionar ficheros
 
 app.use(express.json());
+app.use('/uploads', express.static('./uploads')); //esta linea es para que se pueda acceder a las imagenes desde fuera
 
 /********************************** RUTAS ****************************************************** */
 //********************************************************************************************** */
@@ -45,6 +49,7 @@ app.patch("/entries/:idEntry", validateAuth, editEntry);  //actualizar datos ent
 app.delete("/users/:idUser", validateAuth, checkAdmin, deleteUser); //borrar usuarios
 app.get("/entries", getEntry); //cargar entradas
 app.get("/entries/:barrioID", getEntryByBarrio); //cargar entradas por barrioid
+app.post("/votes/", validateAuth, createVote ) //ruta para votar->likes mirar los require
 
 /********************************** middlewares de errores ************************************ */
 
