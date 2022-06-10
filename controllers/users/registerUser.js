@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const { v4: uuidv4 } = require("uuid");
 const { insertUser, selectUserByEmail } = require("../../repositories/users");
-const { generateError } = require("../../helpers");
+const { generateError } = require("../../helpers/generateError");
 const { sendMail } = require("../../helpers");
 //const { promise } = require("bcrypt/promises");
 

@@ -1,5 +1,5 @@
 const { removeUser } = require("../../repositories/users");
-const { generateError } = require("../../helpers");
+const { generateError } = require("../../helpers/generateError");
 
 const deleteUser = async (req, res, next) => {
   try {
