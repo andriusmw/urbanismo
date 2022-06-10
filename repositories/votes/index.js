@@ -1,4 +1,5 @@
 const insertVoteRepositories = require("./insertVoteRepositories");
-const selectVoteByUserId = require("./selectVoteByUserId")
+const selectVoteByUserId = require("./selectVoteByUserId");
+const selectEntriesWithVotes = require("./selectEntriesWithVotes");
 
-module.exports = {insertVoteRepositories, selectVoteByUserId  }
+module.exports = {insertVoteRepositories, selectVoteByUserId , selectEntriesWithVotes }

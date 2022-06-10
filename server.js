@@ -29,7 +29,9 @@ const {
   createEntry,
 } = require("./controllers/entries");
 
-const {createVote} = require("./controllers/votes")
+const {createVote,
+getEntriesWitchVotes,
+} = require("./controllers/votes")
 
 const app = express();
 
@@ -50,6 +52,7 @@ app.delete("/users/:idUser", validateAuth, checkAdmin, deleteUser); //borrar usu
 app.get("/entries", getEntry); //cargar entradas
 app.get("/entries/:barrioID", getEntryByBarrio); //cargar entradas por barrioid
 app.post("/votes/", validateAuth, createVote ) //ruta para votar->likes mirar los require
+app.get("/votes/", getEntriesWitchVotes); //cargar entradas
 
 /********************************** middlewares de errores ************************************ */
 

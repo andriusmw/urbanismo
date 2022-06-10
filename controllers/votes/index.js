@@ -1,3 +1,4 @@
 const createVote = require("./createVote");
+const getEntriesWitchVotes = require("./getEntriesWithVotes");
 
-module.exports = {createVote }; 
+module.exports = {createVote, getEntriesWitchVotes }; 
