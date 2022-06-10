@@ -33,6 +33,7 @@ const app = express();
 app.use(fileUpload()); //middleware para gestionar ficheros
 
 app.use(express.json());
+app.use('/uploads', express.static('./uploads')); //esta linea es para que se pueda acceder a las imagenes desde fuera
 
 /********************************** RUTAS ****************************************************** */
 //********************************************************************************************** */
