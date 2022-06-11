@@ -47,7 +47,7 @@ app.post("/users", registerUser); //registrar usuario
 app.get("/users/activate/:registrationCode", activateUser); //activar usuario
 app.post("/login", loginUser); //loguear usuario
 app.post("/entries", validateAuth, createEntry);
-app.patch("/entries/:idEntry", validateAuth, editEntry);  //actualizar datos entrada open close
+app.patch("/entries/:idEntry", validateAuth,checkAdmin, editEntry);  //actualizar datos entrada open close
 app.delete("/users/:idUser", validateAuth, checkAdmin, deleteUser); //borrar usuarios
 app.get("/entries", getEntry); //cargar entradas
 app.get("/entries/:barrioID", getEntryByBarrio); //cargar entradas por barrioid
