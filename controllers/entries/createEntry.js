@@ -3,6 +3,7 @@ const { createPathIfNotExists, generateError} = require("../../helpers/generateE
 const path = require("path");
 const sharp = require("sharp");
 const {nanoid} = require("nanoid");
+const {newEntrySchema} = require("../../schemas/entries")
 
 const createEntry = async (req, res, next) => {
   try {
@@ -10,6 +11,11 @@ const createEntry = async (req, res, next) => {
 
     const userId = req.auth.id;
     //requiere una id de usuario para ver que está logueado
+
+    //----------------------------------------------
+    //validaciones
+    await newEntrySchema.validateAsync(req.body);
+    //---------------------------------------------
 
     const { title, description, photo, city, neighborhood, status } = req.body;
     //recogemos del body los parametros
