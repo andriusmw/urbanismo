@@ -2,7 +2,7 @@ const {
   selectEntryById,
   updateEntryById,
 } = require("../../repositories/entries");
-const { generateError } = require("../../helpers");
+const { generateError } = require("../../helpers/generateError");
 
 const editEntry = async (req, res, next) => {
   try {

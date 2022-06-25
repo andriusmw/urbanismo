@@ -4,9 +4,15 @@ const { insertUser, selectUserByEmail } = require("../../repositories/users");
 const { generateError } = require("../../helpers/generateError");
 const { sendMail } = require("../../helpers");
 //const { promise } = require("bcrypt/promises");
+const { newUserSchema } = require("../../schemas/users");
 
 const registerUser = async (req, res, next) => {
   try {
+    //--------------------------------------------
+      //validaciones
+      await newUserSchema.validateAsync(req.body);  
+    //-------------------------------------------
+
     const { email, password, name } = req.body;
     //recoge parametros del body
 

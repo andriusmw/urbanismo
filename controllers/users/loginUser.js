@@ -21,15 +21,24 @@ const loginUser = async (req, res, next) => {
     // if (!isPasswordOk) {
     //   generateError("Wrong password or email", 400);
     // }
+//----------------------------------------------------
+   // const encryptedPassword = user.password;
 
-    const encryptedPassword = user?.password;
+    //const isLoginValid =
+     // user && (await bcrypt.compare(password, encryptedPassword));
 
-    const isLoginValid =
-      user && (await bcrypt.compare(password, encryptedPassword));
+   // if (!isLoginValid) {
+    //  generateError("Wrong password or email", 400);
+   // }
+//--------------------------------------------------
 
-    if (!isLoginValid) {
-      generateError("Wrong password or email", 400);
+    // Compruebo que las contraseñas coinciden
+    const validPassword = await bcrypt.compare(password, user.password);
+
+    if (!validPassword) {
+      throw generateError('La contraseña no coincide', 401);
     }
+
 
     if (user.registrationCode) {
       generateError("User not activated. Check your email", 400);

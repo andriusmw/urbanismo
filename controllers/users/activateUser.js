@@ -2,7 +2,7 @@ const {
     selectUserByActivationCode,
     deleteRegistrationCode,
   } = require("../../repositories/users");
-  const { generateError } = require("../../helpers");
+  const { generateError } = require("../../helpers/generateError");
   
   const activateUser = async (req, res, next) => {
     try {
