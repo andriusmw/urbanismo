@@ -13,7 +13,7 @@ const {
                     //llama a esta función pasándole el registrationcode
   
       if (!user) {
-        generateError("Invalid registration code or already activated", 404);
+        throw generateError("Invalid registration code or already activated", 404);
         //Si el codigo de registro es nulo significa que no hay porque es inválido o usuario ya activado
       }
   

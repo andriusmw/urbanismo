@@ -8,7 +8,7 @@ const deleteUser = async (req, res, next) => {
     const affectedRows = await removeUser(idUser);
 
     if (affectedRows === 0) {
-      generateError("User does not exist", 404);
+      throw generateError("User does not exist", 404);
     }
 
     res.status(200).send({ status: "ok", message: "User deleted" });

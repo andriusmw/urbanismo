@@ -23,6 +23,17 @@ const newEntrySchema = Joi.object({
       )
     ),
         //No validamos la imagen porque es un campo opcional.
+
+        image: Joi.any()
+        .optional()
+        .error(
+          generateError(
+            "image field error",
+            400
+          )
+        ),
+
+
         city: Joi.string()
         .min(4)
         .max(100)
@@ -40,12 +51,12 @@ const newEntrySchema = Joi.object({
         .required()
         .error(
           generateError(
-            "City is required and must have between 4 and 100 characters",
+            "NEIGHBORHOOD is required and must have between 4 and 100 characters",
             400
           )
         ), 
 
-        status: Joi.string()
+        status: Joi.string().valid("open","closed")
         .min(4)
         .max(6)
         .error(

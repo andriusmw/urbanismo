@@ -11,13 +11,13 @@ const editEntry = async (req, res, next) => {
     const entryDB = await selectEntryById(idEntry);
 
     if (!entryDB) {
-      generateError("Entry does not exist", 404);
+      throw generateError("Entry does not exist", 404);
     }
 
     const userRole = req.auth.role; //De dónde viene .auth.id?
 
     if (userRole !== "admin") {
-      generateError("Only admin users can edit entries", 400);
+      throw generateError("Only admin users can edit entries", 400);
     }
     await updateEntryById({ ...entryDB, ...req.body });
 
