@@ -258,7 +258,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjU0NzkwNzk3LCJleHAiOjE2NTczODI3OTd9.vDWWFVdvTIUVgkUGumcbTnNgXW8h4MZ-3S0KpbJk3YI",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjU2MzM4OTUxLCJleHAiOjE2NTg5MzA5NTF9.3SWe5EER16wxGAsVnBidk_3HnyvhJoKiw_vzqevwwXs",
 							"type": "string"
 						}
 					]
@@ -270,7 +270,7 @@
 					"formdata": [
 						{
 							"key": "title",
-							"value": "titulo 1",
+							"value": "titulo 15",
 							"type": "text"
 						},
 						{
@@ -299,7 +299,7 @@
 							"type": "text"
 						},
 						{
-							"key": "userID",
+							"key": "user_id",
 							"value": "1",
 							"type": "text"
 						}

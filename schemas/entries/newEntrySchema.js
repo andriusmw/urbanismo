@@ -57,8 +57,7 @@ const newEntrySchema = Joi.object({
         ), 
 
         status: Joi.string().valid("open","closed")
-        .min(4)
-        .max(6)
+      
         .error(
           generateError(
             "STATUS field is not valid",
