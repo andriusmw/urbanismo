@@ -3,6 +3,7 @@ const selectEntryByBarrio = require("./selectEntryByBarrio");
 const updateEntryById = require("./updateEntryById");
 const selectEntry = require("./selectEntry");
 const selectEntryById = require("./selectEntryById");
+const removeEntry = require("./removeEntry")
 
 module.exports = {
   insertEntry,
@@ -10,4 +11,5 @@ module.exports = {
   updateEntryById,
   selectEntry,
   selectEntryById,
+  removeEntry
 };

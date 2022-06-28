@@ -29,10 +29,12 @@ const {
   getEntryByBarrio,
   editEntry,
   createEntry,
+  deleteEntry
 } = require("./controllers/entries");
 
 const {createVote,
 getEntriesWitchVotes,
+deleteVote
 } = require("./controllers/votes")
 
 const app = express();
@@ -48,9 +50,10 @@ app.use('/uploads', express.static('./uploads')); //esta linea es para que se pu
 app.post("/users", registerUser); //registrar usuario
 app.get("/users/activate/:registrationCode", activateUser); //activar usuario
 app.post("/login", loginUser); //loguear usuario
-app.post("/entries", validateAuth, createEntry);
+app.post("/entries", validateAuth, checkAdmin, createEntry);
 app.patch("/entries/:idEntry", validateAuth,checkAdmin, editEntry);  //actualizar datos entrada open close
 app.delete("/users/:idUser", validateAuth, checkAdmin, deleteUser); //borrar usuarios
+app.delete("/entries/:idEntry", validateAuth, checkAdmin, deleteVote, deleteEntry);
 app.get("/entries", getEntry); //cargar entradas
 app.get("/entries/:barrioID", getEntryByBarrio); //cargar entradas por barrioid
 app.get("/users/:email", getUserByEmail); //cargar usuario por email

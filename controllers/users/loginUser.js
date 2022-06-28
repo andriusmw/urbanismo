@@ -41,7 +41,7 @@ const loginUser = async (req, res, next) => {
 
 
     if (user.registrationCode) {
-      generateError("User not activated. Check your email", 400);
+      throw generateError("User not activated. Check your email", 400);
     }
 
     const tokenPayload = {

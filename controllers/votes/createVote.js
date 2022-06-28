@@ -18,12 +18,12 @@ const createVote = async (req, res, next) => {
     const { entryId, userId } = req.body;
     //recogemos del body los parametros
 
-    const voteWithSameUserId = await selectVoteByUserId(entryId, userId);
+    const voteWithSameUserId = await selectVoteByUserId(userId, entryId);
     //busca usuario con el mismo email
 
     console.log(voteWithSameUserId)
     if (voteWithSameUserId !== undefined) {
-      generateError("that entry already has your vote", 400);
+      throw generateError("that entry already has your vote", 400);
       //lanza error si existe un voto con mismo userid y entryid para evitar duplicados
       res.status(400).send({ status: "error", data: { voteWithSameUserId } });
       next(error);
