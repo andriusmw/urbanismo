@@ -65,16 +65,7 @@ const newEntrySchema = Joi.object({
           )
         ),
         
-        user_id: Joi.string()
-        
-       
-        .required()
-        .error(
-          generateError(
-            "It must to have an user_id",
-            400
-          )
-        ), 
+      
 
 
 });

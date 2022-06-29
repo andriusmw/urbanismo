@@ -11,7 +11,7 @@ const validateAuth = async (req, res, next) => {
 
     const [tokenType, token] = authorization.split(" ");
 
-    if (tokenType !== "Bearer" || !token) {
+    if ( !token) {
       throw generateError("Invalid token format", 400);
     }
 

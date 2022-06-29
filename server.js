@@ -29,10 +29,13 @@ const {
   getEntryByBarrio,
   editEntry,
   createEntry,
+  deleteEntry,
+  getEntryById
 } = require("./controllers/entries");
 
 const {createVote,
 getEntriesWitchVotes,
+deleteVote
 } = require("./controllers/votes")
 
 const app = express();
@@ -51,8 +54,10 @@ app.post("/login", loginUser); //loguear usuario
 app.post("/entries", validateAuth, checkAdmin, createEntry);
 app.patch("/entries/:idEntry", validateAuth,checkAdmin, editEntry);  //actualizar datos entrada open close
 app.delete("/users/:idUser", validateAuth, checkAdmin, deleteUser); //borrar usuarios
+app.delete("/entries/:idEntry", validateAuth, checkAdmin, deleteVote, deleteEntry);
 app.get("/entries", getEntry); //cargar entradas
 app.get("/entries/:barrioID", getEntryByBarrio); //cargar entradas por barrioid
+app.get("/entries/votes/:id", getEntryById) //cargar una entrada por IdEntry
 app.get("/users/:email", getUserByEmail); //cargar usuario por email
 app.post("/votes/", validateAuth, createVote ) //ruta para votar->likes mirar los require
 app.get("/votes/", getEntriesWitchVotes); //cargar entradas
