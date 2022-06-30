@@ -2,6 +2,7 @@ const insertUser = require("./insertUser");
 const selectUserByActivationCode = require("./selectUserByActivationCode");
 const deleteRegistrationCode = require("./deleteRegistrationCode");
 const selectUserByEmail = require("./selectUserByEmail");
+const selectUserById = require("./selectUserById");
 const removeUser = require("./removeUser");
 
 module.exports = {
@@ -9,5 +10,6 @@ module.exports = {
   selectUserByActivationCode,
   deleteRegistrationCode,
   selectUserByEmail,
- removeUser,
+  selectUserById,
+  removeUser,
 };
