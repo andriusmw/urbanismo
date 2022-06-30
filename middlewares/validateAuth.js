@@ -11,14 +11,13 @@ const validateAuth = async (req, res, next) => {
 
     const [tokenType, token] = authorization.split(" ");
 
-    if ( !token) {
+    if (!token) {
       throw generateError("Invalid token format", 400);
     }
 
     const tokenInfo = jwt.verify(token, process.env.JWT_SECRET);
 
     req.auth = tokenInfo;
-
     next();
   } catch (error) {
     next(error);
