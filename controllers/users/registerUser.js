@@ -4,9 +4,15 @@ const { insertUser, selectUserByEmail } = require("../../repositories/users");
 const { generateError } = require("../../helpers/generateError");
 const { sendMail } = require("../../helpers");
 //const { promise } = require("bcrypt/promises");
+const { newUserSchema } = require("../../schemas/users");
 
 const registerUser = async (req, res, next) => {
   try {
+    //--------------------------------------------
+      //validaciones
+      await newUserSchema.validateAsync(req.body);  
+    //-------------------------------------------
+
     const { email, password, name } = req.body;
     //recoge parametros del body
 
@@ -14,7 +20,7 @@ const registerUser = async (req, res, next) => {
     //busca usuario con el mismo email
 
     if (userWithSameEmail) {
-      generateError("Already exists an user with that email", 400);
+      throw generateError("Already exists an user with that email", 400);
       //lanza error si existe el usuario
     }
 

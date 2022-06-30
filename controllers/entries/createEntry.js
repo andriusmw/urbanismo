@@ -23,8 +23,8 @@ const createEntry = async (req, res, next) => {
 //-----------------------CODIGO NUEVO PARA IMGANES ------------------------------------------
 
 
-console.log(req.files);
-console.log(req.files.image);
+//console.log(req.files);
+//console.log(req.files.image);
 //req.files---> .image es el nombre de la KEY que ponemos en el postman
 let imageFileName;
 if (req.files && req.files.image ) {
@@ -50,7 +50,7 @@ if (req.files && req.files.image ) {
 
     res.status(201).send({
       status: "ok",
-      data: { entry: insertId },
+      data: { id:insertId, title, description, imageFileName, city, neighborhood, status, userId },
     });
   } catch (error) {
     next(error);
