@@ -3,7 +3,7 @@ const getPool = require("../../database/getPool");
 const updateEntryById = async ({
   title,
   description,
-  photo,
+  imageFileName,
   city,
   neighborhood,
   status,
@@ -13,7 +13,7 @@ const updateEntryById = async ({
 
   const [{ affectedRows }] = await pool.query(
     "UPDATE entries SET title = ?, description = ?, photo = ?, city = ?, neighborhood = ?, status = ? WHERE id = ?",
-    [title, description, photo, city, neighborhood, status, id]
+    [title, description, imageFileName, city, neighborhood, status, id]
   );
 
   return affectedRows;
