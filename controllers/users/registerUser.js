@@ -47,6 +47,10 @@ const registerUser = async (req, res, next) => {
       "Bienvenido a Urbanismo.inc tu lugar chick para hacer más cool tu ciudad",
       `
       <p>Activation code: ${registrationCode}</p> 
+
+      <p>Visita : localhost:3000/users/activate/${registrationCode}  </p>
+
+      <p>para activar tu cuenta</p>
       `,
       email
     );
