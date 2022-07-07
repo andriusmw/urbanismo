@@ -31,7 +31,7 @@ const editEntry = async (req, res, next) => {
     next(error);
   }*/
 
-  const { title, description, photo, city, neighborhood, status } = req.body;
+  const { title, description, city, neighborhood, status } = req.body;
   //recogemos del body los parametros
 
 //-----------------------CODIGO NUEVO PARA IMGANES ------------------------------------------
@@ -60,11 +60,12 @@ await image.toFile(path.join(uploadsDir, imageFileName));
 
 //----------------------------------------------------------------------------
   const insertId = await updateEntryById({ title, description, imageFileName, city, neighborhood, status, id:idEntry });
+  //const insertId = await updateEntryById({...entryDB, ...req.body });
   //pasamos los paramretros a updaterentry y lo guardamos en la constante insertId
 
   res.status(201).send({
     status: "ok",
-    data: { id:insertId, title, description, imageFileName, city, neighborhood, status},
+    data: { id:insertId, title, description, photo: imageFileName, city, neighborhood, status},
   });
 } catch (error) {
   next(error);

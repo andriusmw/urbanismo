@@ -50,7 +50,7 @@ if (req.files && req.files.image ) {
 
     res.status(201).send({
       status: "ok",
-      data: { id:insertId, title, description, imageFileName, city, neighborhood, status, userId },
+      data: { id:insertId, title, description, photo: imageFileName, city, neighborhood, status, userId },
     });
   } catch (error) {
     next(error);
