@@ -40,7 +40,7 @@ const editEntry = async (req, res, next) => {
 //console.log(req.files);
 //console.log(req.files.image);
 //req.files---> .image es el nombre de la KEY que ponemos en el postman
-let imageFileName;
+let imageFileName = entryDB.photo; //Carga la photo que hay en el back y luego si recibe del front otra foto, hace lo de abajo
 if (req.files && req.files.image ) {
 //Creo el path del directorio uploads
   const uploadsDir = path.join(__dirname, `../../uploads`);
